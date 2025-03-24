@@ -21,7 +21,11 @@ const data = {
       role: 'Sr. Frontend Engineer',
       timePeriod: 'May 2023 - Present',
       notes: [
-        'Working on the InstUI React component library with heavy focus on accessibility (WCAG)'
+        'Working on the InstUI React component library with heavy focus on accessibility (WCAG)',
+        'Planned and helped the migration of legacy karma unit tests to vitest',
+        'Introduced component (integration) testing with cypress',
+        'Modernized the release pipeline',
+        'Mentoring and onboarding interns, providing guidance on best practices, code reviews, and collaboration',
       ]
     },
     {

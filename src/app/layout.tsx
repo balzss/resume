@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Balazs Saros",
+  title: "Balazs Saros CV",
   icons: {
     icon: '/icon.png'
   }
