@@ -14,26 +14,18 @@ const data = {
     github: 'https://github.com/balzss',
     linkedin: 'https://linkedin.com/in/bsaros'
   },
-  summary: 'Senior Frontend Engineer with 8+ years of experience, specializing in React and TypeScript for the past 5 years, with expertise in accessibility (a11y). Some background in full-stack development with Node.js. Proficient in Next.js, unit and integration testing. Passionate about building tools, designing CI/CD pipelines, improving developer workflows, and contributing to open-source projects.',
+  summary: 'Senior Frontend Engineer with 8+ years of experience specializing in React, TypeScript, and accessibility (WCAG). Experienced in building and maintaining design system component libraries, CI/CD pipelines, and developer tooling. Active open-source contributor.',
   experience: [
     {
       company: 'Instructure',
       role: 'Sr. Frontend Engineer',
       timePeriod: 'May 2023 - Present',
       notes: [
-        'Working on the InstUI React component library with heavy focus on accessibility (WCAG)',
-        'Planned and helped the migration of legacy karma unit tests to vitest',
-        'Introduced component (integration) testing with cypress',
-        'Modernized the release pipeline',
-        'Mentoring and onboarding interns, providing guidance on best practices, code reviews, and collaboration',
-      ]
-    },
-    {
-      company: 'INSPYRE Informatics',
-      role: 'Frontend Developer',
-      timePeriod: 'Jan 2023 - Apr 2023',
-      notes: [
-        'Worked on client projects with React and TypeScript'
+        'Maintain and extend InstUI, a React component library used across Instructure products, with a focus on WCAG accessibility compliance',
+        'Led migration of legacy Karma unit tests to Vitest',
+        'Introduced integration testing with Cypress',
+        'Modernized the release pipeline, reducing manual steps and improving release reliability',
+        'Mentor and onboard interns on best practices and code review',
       ]
     },
     {
@@ -41,8 +33,8 @@ const data = {
       role: 'Frontend Engineer',
       timePeriod: 'Jan 2020 - Jan 2023',
       notes: [
-        'Worked on Carbon Design System',
-        'Worked on Cloud Onboarding, improving the onboarding workflow, developing custom middlewares to connect with company APIs'
+        'Contributed to Carbon Design System, IBM\'s open-source React component library',
+        'Built custom middleware and improved user onboarding flows for IBM Cloud'
       ]
     },
     {
@@ -51,19 +43,25 @@ const data = {
       timePeriod: 'Jul 2018 - Jan 2020',
       notes: [
         'Worked on an administrative product for customers, connecting data from other company services',
-        'Helped creating a greenfield project developing React extensions for Tableau'
+        'Built React extensions for Tableau as part of a greenfield project'
       ]
     },
     {
       company: 'iMind.eu',
       role: 'Jr. Software Developer',
       timePeriod: 'Oct 2017 - Jul 2018',
+      notes: [
+        'Developed client projects including joszaki.hu, 4D Motion Golf, and quantified.company',
+      ]
     },
     {
       company: 'Mortoff IT Consulting and Services',
       role: 'Software Developer Intern',
       timePeriod: 'Aug 2016 - Sep 2017',
-    }
+      notes: [
+        'Learned full-stack development with AngularJS and Java Spring',
+      ]
+    },
   ],
   education: {
     school: 'Budapest University of Technology and Economics',
@@ -136,9 +134,9 @@ export default function Resume() {
         </div>
 
         {/* A4 Resume */}
-        <div className="w-full text-foreground p-0 print:p-0 sm:p-4 ">
+        <main className="w-full text-foreground p-0 print:p-0 sm:p-4 print:p-0">
           {/* Header */}
-          <header className="mb-4 border-b border-gray-200 pb-4">
+          <header className="mb-4 border-b border-border pb-4">
             <h1 className="text-2xl font-bold ">Balazs Saros</h1>
             <h2 className="text-lg font-medium text-muted-foreground ">Senior Frontend Engineer</h2>
 
@@ -151,7 +149,7 @@ export default function Resume() {
                 <Mail className="h-4 w-4" />
                 <a
                   href={`mailto:${data.urls.email}`}
-                  className="hover:text-primary hover:underline "
+                  className="underline print:no-underline hover:text-primary"
                 >
                   {data.urls.email}
                 </a>
@@ -162,7 +160,7 @@ export default function Resume() {
                   href={data.urls.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-primary hover:underline "
+                  className="underline print:no-underline hover:text-primary"
                 >
                   {shortenUrl(data.urls.linkedin)}
                 </a>
@@ -173,7 +171,7 @@ export default function Resume() {
                   href={data.urls.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-primary hover:underline "
+                  className="underline print:no-underline hover:text-primary"
                 >
                   {shortenUrl(data.urls.github)}
                 </a>
@@ -182,20 +180,20 @@ export default function Resume() {
           </header>
 
           {/* Professional Summary */}
-          <section className="mb-5">
-            <h3 className="text-base font-bold">Professional Summary</h3>
+          <section className="mb-5 print:mb-3">
+            <h3 className="text-base font-bold uppercase tracking-wide">Professional Summary</h3>
             <p className="text-muted-foreground">{data.summary}</p>
           </section>
 
           {/* Work Experience */}
-          <section className="mb-5">
-            <h3 className="mb-1 text-base font-bold ">Work Experience</h3>
+          <section className="mb-5 print:mb-3">
+            <h3 className="mb-1 text-base font-bold uppercase tracking-wide">Work Experience</h3>
 
             {data.experience.map((item) => (
-              <div className="mb-3" key={item.company}>
+              <div className="mb-3 print:mb-2" key={item.company}>
                 <div className="flex justify-between">
                   <h4 className="font-medium ">{item.role}</h4>
-                  <span className="text-muted-foreground text-right">{item.timePeriod}</span>
+                  <span className="text-muted-foreground text-right whitespace-nowrap">{item.timePeriod}</span>
                 </div>
                 <div className="text-muted-foreground ">{item.company}</div>
                 <ul className="mt-1 list-disc pl-5 text-muted-foreground ">
@@ -208,8 +206,8 @@ export default function Resume() {
           </section>
 
           {/* Skills */}
-          <section className="mb-5">
-            <h3 className="mb-1 text-base font-bold ">Skills</h3>
+          <section className="mb-5 print:mb-3">
+            <h3 className="mb-1 text-base font-bold uppercase tracking-wide">Skills</h3>
             <div className="grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-4">
               {data.skills.map((skill) => (
                 <div key={skill.categoryName}>
@@ -222,7 +220,7 @@ export default function Resume() {
 
           {/* Education */}
           <section className="mb-2">
-            <h3 className="mb-1 text-base font-bold ">Education</h3>
+            <h3 className="mb-1 text-base font-bold uppercase tracking-wide">Education</h3>
             <div>
               <h4 className="font-medium ">{data.education.field}</h4>
               <div className="text-muted-foreground ">
@@ -231,7 +229,7 @@ export default function Resume() {
             </div>
           </section>
 
-        </div>
+        </main>
       </div>
     </ThemeProvider>
   )
